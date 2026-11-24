@@ -36,8 +36,11 @@ def fetch(endpoint, **params):
     except (requests.RequestException, ValueError, KeyError) as error:
         sys.exit(f"API error: {error}")
 
+
+#This is a section for creating a parser to pass all the arguments
+
 parser = argparse.ArgumentParser(
-    description="Medsafe: FDA recall and side-effects lookup"
+    description="Medsafe: FDA and side-effects and after-symptoms lookup"
 )
 parser.add_argument("drug", help="generic drug name, e.g. paracetamol")
 parser.add_argument(
@@ -62,6 +65,8 @@ rec = fetch(
     search=f'openfda.generic_name:"{d}" OR product_description:"{d}"',
 )
 
+#the following section is for generating classes for searchm sorting and filtering.
+
 if a.cls:
     target_class = f"Class {a.cls}"
     rec = [item for item in rec if item.get("classification") == target_class]
@@ -85,6 +90,8 @@ rec.sort(
 print(f"\nRECALLS for '{d}':{len(rec)} found")
 print(f"{'DATE':<10} {'CLASS':<10} {'COMPANY':<25} REASON")
 
+#this will show the company report dates as well as reasons for recall
+
 for item in rec:
     date = item.get("report_date", "")
     classification = item.get("classification", "")
@@ -98,6 +105,8 @@ ev = fetch(
     search=f'patient.drug.openfda.generic_name:"{d}"',
     count="patient.reaction.reactionmeddrapt.exact",
 )[:10]
+
+#this section is for reactions of the medecine
 
 print(f"\nTOP REPORTED REACTIONS for '{d}'")
 for event in ev:
