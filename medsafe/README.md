@@ -130,7 +130,7 @@ service haproxy restart
 
 ## Links
 
-- **Demo video (under 2 min):** <<paste YouTube link>>
+- **Demo video :** <<https://youtu.be/OUEtORuaUqc>>
 - **Load balancer URL:** <<http://localhost:8082>>
 - **Login details / API key:** provided in the Canvas submission comment
 
