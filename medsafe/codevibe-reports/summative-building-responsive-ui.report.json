@@ -6,8 +6,8 @@
   "metrics": {
     "assignmentId": "assignment-1795620192323-ucwg0lr",
     "authorship": {
-      "totalLines": 2,
-      "manualLines": 2,
+      "totalLines": 110,
+      "manualLines": 74,
       "permittedAILines": 0,
       "prohibitedAILines": 0,
       "flaggedAILines": 0,
@@ -16,7 +16,7 @@
     },
     "ownership": {
       "score": 100,
-      "filesReviewed": 0,
+      "filesReviewed": 3,
       "filesUnreviewed": 0,
       "unreviewedLines": 0,
       "averageReviewTimeMs": 0
